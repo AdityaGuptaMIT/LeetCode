@@ -1,7 +1,7 @@
-char stack [10000] ;
+
 int top = -1 ;
 
-void push(char c) {
+void push(char stack[], char c) {
     if (top == 9999) {
         return ;
     }
@@ -22,12 +22,14 @@ void pop () {
 
 bool isValid(char* s) {
 
+    int n = strlen(s) ;
     top = -1 ;
+    char *stack = malloc(n * sizeof(char));
 
-    for (int i=0 ; i<strlen(s) ; i++) {
+    for (int i=0 ; i<n ; i++) {
 
         if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
-            push(s[i]) ;
+            push(stack, s[i]) ;
         }
 
         else if (s[i] == ')' || s[i] == '}' || s[i] == ']') {
@@ -55,4 +57,6 @@ bool isValid(char* s) {
     }
     else
         return false ;
+
+    free (stack) ;
 }
