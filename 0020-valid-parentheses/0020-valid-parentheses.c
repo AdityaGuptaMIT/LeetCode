@@ -1,4 +1,3 @@
-
 int top = -1 ;
 
 void push(char stack[], char c) {
@@ -52,11 +51,12 @@ bool isValid(char* s) {
             continue ;
     }
 
+    free (stack) ;
+    
     if (top == -1) {
         return true ;
     }
     else
         return false ;
 
-    free (stack) ;
 }
