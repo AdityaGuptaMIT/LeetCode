@@ -33,8 +33,10 @@ bool isValid(char* s) {
 
         else if (s[i] == ')' || s[i] == '}' || s[i] == ']') {
 
-            if (top == -1)
+            if (top == -1) {
+                free (stack) ;
                 return false ;
+            }
             else {
                 if (stack[top] == '(' && s[i] == ')')
                     pop() ;
@@ -42,8 +44,10 @@ bool isValid(char* s) {
                     pop() ;
                 else if (stack[top] == '{' && s[i] == '}')
                     pop() ;
-                else
+                else{
+                    free (stack) ;
                     return false ;
+                }
             }
         }
         
@@ -52,7 +56,7 @@ bool isValid(char* s) {
     }
 
     free (stack) ;
-    
+
     if (top == -1) {
         return true ;
     }
