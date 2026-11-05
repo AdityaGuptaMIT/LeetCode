@@ -11,7 +11,7 @@ public:
                 min = prices[i] ;
             }
 
-            if (prices[i] - min > profit) {
+            else if (prices[i] - min > profit) {
                 profit = prices[i] - min ;
             }
         }
